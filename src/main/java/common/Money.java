@@ -60,7 +60,4 @@ public final class Money implements Comparable<Money> {
         return amount.toString();
     }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
 }

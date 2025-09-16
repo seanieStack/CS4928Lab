@@ -14,7 +14,7 @@ public final class Order {
     }
 
     public void addItem(LineItem li) {
-        // TODO: enforce quantity > 0
+        if (li.quantity() <= 0) throw new IllegalArgumentException();
         items.add(li);
     }
 
