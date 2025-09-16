@@ -1,0 +1,9 @@
+1.
+We use a custom class to store the money value as it allows to control operations done on the value (only allowing positive values) and to have correctly handle decimal points (store to two decimal points and handle rounding)
+
+2.
+From the first point to only allow positive values, which reduces the likely hood of bugs or unexpected behaviour
+
+3.
+It would not make sense to have lineItem be a child of an order as they do not exhibit the same behaviour or values.
+Also (order "has a" lineItem) and not that (lineItem "is a" order)
