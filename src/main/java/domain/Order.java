@@ -1,6 +1,7 @@
 package domain;
 
 import common.Money;
+import payment.PaymentStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,4 +35,11 @@ public final class Order {
 
     public long getId() { return id; }
     public List<LineItem> getItems() { return items; }
+
+    public void pay(PaymentStrategy strategy) {
+        if (strategy == null) {
+            throw new IllegalArgumentException("strategy required");
+        }
+        strategy.pay(this);
+    }
 }
