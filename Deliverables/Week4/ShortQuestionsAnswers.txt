@@ -1,0 +1,11 @@
+1. How does the Observer pattern improve decoupling in this POS system?
+    The Observer pattern improves decoupling by allowing other components to be notified without the order class worrying about their individual implementations or logic.
+    This removes the need for direct dependencies or hard-coded links between classes.
+    Each observer reacts to events independently, so changes to one observer doesn't affect other parts of the system.
+
+2. Why is it beneficial to add new observers without editing the Order class?
+    Because Order only depends on the OrderObserver interface, you can add new observers (like delivery or analytics trackers) without touching the code of order.
+
+3. Give a real-world example of the Observer pattern.
+    A good example is social media notifications. When I turn on notifications for someone I follow it subscribes me to updates on that person.
+    Whenever that person posts, all subscribers are notified without that persons account having to worry about how I deliver my notifications.
