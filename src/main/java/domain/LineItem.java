@@ -1,5 +1,6 @@
 package domain;
 
+import catalog.Priced;
 import catalog.Product;
 import common.Money;
 
@@ -20,6 +21,7 @@ public final class LineItem {
     public int quantity() { return quantity; }
 
     public Money lineTotal() {
-        return product.basePrice().multiply(quantity);
+        Money unit = (product instanceof Priced p) ? p.price() : product.basePrice();
+        return unit.multiply(quantity);
     }
 }
