@@ -12,6 +12,12 @@ public final class Money implements Comparable<Money> {
         return new Money(BigDecimal.valueOf(value));
     }
 
+    public static Money of(BigDecimal value) {
+        if (value == null) throw new IllegalArgumentException("value required");
+        if (value.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("value cannot be negative");
+        return new Money(value);
+    }
+
     public static Money zero() {
         return of(0);
     }
@@ -19,6 +25,10 @@ public final class Money implements Comparable<Money> {
     private Money(BigDecimal a) {
         if (a == null) throw new IllegalArgumentException("amount required");
         this.amount = a.setScale(2, RoundingMode.HALF_UP);
+    }
+
+    public BigDecimal asBigDecimal() {
+        return amount;
     }
 
     public Money add(Money other) {

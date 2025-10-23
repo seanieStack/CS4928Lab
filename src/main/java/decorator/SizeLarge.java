@@ -14,7 +14,7 @@ public final class SizeLarge extends ProductDecorator implements Priced {
 
     @Override
     public String name() {
-        return base.name() + " + Size Large";
+        return base.name() + " (Large)";
     }
 
     public Money price(){

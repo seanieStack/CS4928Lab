@@ -26,7 +26,7 @@ public class DecoratorFactoryTests {
     void decorator_stacks() {
         Product espresso = new SimpleProduct("P-ESP", "Espresso", Money.of(2.50));
         Product decorated = new SizeLarge(new OatMilk(new ExtraShot(espresso)));
-        assertEquals("Espresso + Extra Shot + Oat Milk + Size Large", decorated.name());
+        assertEquals("Espresso + Extra Shot + Oat Milk (Large)", decorated.name());
         assertEquals(Money.of(2.50 + 0.80 + 0.50 + 0.70), ((Priced) decorated).price());
     }
 
@@ -85,7 +85,7 @@ public class DecoratorFactoryTests {
         assertEquals(Money.of(2.90), ((Priced) syp).price());
 
         Product large = new SizeLarge(base);
-        assertEquals("Espresso + Size Large", large.name());
+        assertEquals("Espresso (Large)", large.name());
         assertEquals(Money.of(3.20), ((Priced) large).price());
     }
 
